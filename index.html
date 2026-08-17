@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PANDAPOSS.COM — Presentación Comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#08080f;--bg2:#060609;
+  --violet:#7c3aed;--violet-l:#a78bfa;--violet-d:#c4b5fd;
+  --green:#25D366;--green-l:#4ade80;
+  --red:#ef4444;--red-l:#f87171;
+  --blue:#38bdf8;--blue-l:#60a5fa;
+  --amber:#f59e0b;--pink:#d946ef;
+  --sg:'Space Grotesk',sans-serif;--dm:'DM Mono',monospace;
+}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:#fff;font-family:var(--dm);min-height:100vh}
+.dots-grid{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);background-size:28px 28px;z-index:0}
+.aurora{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.aurora-blob{position:absolute;border-radius:50%;filter:blur(55px);opacity:.5}
+.blob1{width:500px;height:500px;background:rgba(124,58,237,.25);top:-150px;left:-100px;animation:float-up 9s ease-in-out infinite}
+.blob2{width:420px;height:420px;background:rgba(56,189,248,.15);bottom:-120px;right:-80px;animation:float-dn 11s ease-in-out infinite}
+.blob3{width:300px;height:300px;background:rgba(37,211,102,.12);top:40%;left:60%;animation:float-up 13s ease-in-out infinite}
+@keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes float-dn{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
+
+/* ── Deck ── */
+.deck{position:fixed;inset:0;z-index:1}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(60px) scale(.98);transition:opacity .7s ease,transform .7s ease,visibility 0s linear .7s;padding:5vh 6vw;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.slide.active{opacity:1;visibility:visible;transform:translateX(0) scale(1);transition:opacity .7s ease,transform .7s ease,visibility 0s}
+.slide.leaving-left{transform:translateX(-60px) scale(.98)}
+.slide .kicker{font-size:clamp(11px,1.3vw,14px);letter-spacing:.35em;text-transform:uppercase;color:var(--violet-l);margin-bottom:1.2vh}
+.slide h1{font-family:var(--sg);font-weight:900;font-size:clamp(30px,5.2vw,72px);line-height:1.02;letter-spacing:-.02em;margin-bottom:2.2vh}
+.slide h2{font-family:var(--sg);font-weight:700;font-size:clamp(22px,3.4vw,46px);line-height:1.1;letter-spacing:-.01em;margin-bottom:2.5vh}
+.slide p.lead{font-size:clamp(14px,1.7vw,20px);color:#cbd5e1;line-height:1.6;max-width:62ch}
+.grad{background:linear-gradient(100deg,var(--violet-l),var(--blue-l),var(--green-l));-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad-w{background:linear-gradient(100deg,#fff,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid rgba(139,92,246,.5);background:rgba(124,58,237,.1);font-size:clamp(11px,1.2vw,14px);color:var(--violet-d);margin:4px}
+
+/* Glass card */
+.glass{background:rgba(255,255,255,.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:1rem;border:1px solid rgba(139,92,246,.35);position:relative;overflow:hidden}
+.glass::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 60%);pointer-events:none}
+.glow-v{animation:glow-v 3.5s ease-in-out infinite}
+.glow-g{border-color:rgba(37,211,102,.4);animation:glow-g 3.5s ease-in-out infinite}
+.glow-b{border-color:rgba(56,189,248,.4);animation:glow-b 3.5s ease-in-out infinite}
+.glow-a{border-color:rgba(245,158,11,.4);animation:glow-a 3.5s ease-in-out infinite}
+.glow-p{border-color:rgba(217,70,239,.4);animation:glow-p 3.5s ease-in-out infinite}
+.glow-r{border-color:rgba(239,68,68,.4);animation:glow-r 3.5s ease-in-out infinite}
+@keyframes glow-v{0%,100%{box-shadow:0 0 0 1px rgba(139,92,246,.4),0 8px 40px rgba(139,92,246,.12)}50%{box-shadow:0 0 0 1px rgba(139,92,246,.9),0 8px 60px rgba(139,92,246,.3)}}
+@keyframes glow-g{0%,100%{box-shadow:0 0 0 1px rgba(37,211,102,.4),0 8px 40px rgba(37,211,102,.1)}50%{box-shadow:0 0 0 1px rgba(37,211,102,.9),0 8px 60px rgba(37,211,102,.28)}}
+@keyframes glow-b{0%,100%{box-shadow:0 0 0 1px rgba(56,189,248,.4),0 8px 40px rgba(56,189,248,.1)}50%{box-shadow:0 0 0 1px rgba(56,189,248,.9),0 8px 60px rgba(56,189,248,.28)}}
+@keyframes glow-a{0%,100%{box-shadow:0 0 0 1px rgba(245,158,11,.4),0 8px 40px rgba(245,158,11,.1)}50%{box-shadow:0 0 0 1px rgba(245,158,11,.9),0 8px 60px rgba(245,158,11,.28)}}
+@keyframes glow-p{0%,100%{box-shadow:0 0 0 1px rgba(217,70,239,.4),0 8px 40px rgba(217,70,239,.1)}50%{box-shadow:0 0 0 1px rgba(217,70,239,.9),0 8px 60px rgba(217,70,239,.28)}}
+@keyframes glow-r{0%,100%{box-shadow:0 0 0 1px rgba(239,68,68,.4),0 8px 40px rgba(239,68,68,.1)}50%{box-shadow:0 0 0 1px rgba(239,68,68,.9),0 8px 60px rgba(239,68,68,.28)}}
+
+/* Slide 1 hero */
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;border:1px solid rgba(37,211,102,.5);background:rgba(37,211,102,.08);font-size:clamp(12px,1.3vw,15px);color:var(--green-l);margin-bottom:3vh;animation:glow-g 3s ease-in-out infinite}
+.stat-row{display:flex;gap:1.5vw;flex-wrap:wrap;margin-top:4vh}
+.stat{text-align:center;padding:1.6vh 1.6vw;min-width:150px}
+.stat .num{font-family:var(--sg);font-weight:900;font-size:clamp(22px,3vw,40px)}
+.stat .lbl{font-size:clamp(10px,1vw,13px);color:#94a3b8;letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+.zero{color:var(--green-l)}.pct30{color:var(--red-l)}
+
+/* Slide 2 ecosystem */
+.eco{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:3vh}
+.eco-card{padding:16px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(139,92,246,.3);transition:transform .3s,box-shadow .3s}
+.eco-card:hover{transform:translateY(-4px)}
+.eco-card .ico{font-size:24px;margin-bottom:8px}
+.eco-card .nm{font-family:var(--sg);font-weight:700;font-size:14px;margin-bottom:4px}
+.eco-card .ds{font-size:11px;color:#94a3b8;line-height:1.45}
+.eco-core{grid-column:span 2;border:1px solid rgba(37,211,102,.45);background:rgba(37,211,102,.05)}
+.eco-core .nm{color:var(--green-l)}
+
+/* Slide 3 flow */
+.flow-wrap{display:flex;align-items:center;gap:12px;margin-top:4vh;flex-wrap:wrap}
+.flow-step{flex:1;min-width:150px;padding:18px 14px;border-radius:12px;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(139,92,246,.3)}
+.flow-step .st{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--violet-l);margin-bottom:8px}
+.flow-step .ico{font-size:26px;margin-bottom:6px}
+.flow-step .nm{font-family:var(--sg);font-weight:700;font-size:14px;margin-bottom:4px}
+.flow-step .ds{font-size:11px;color:#94a3b8}
+.flow-arrow{font-size:22px;color:var(--violet-l);flex-shrink:0}
+.channel-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:2.5vh}
+
+/* Slide 4 benefits */
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:3vh}
+.ben{display:flex;gap:14px;padding:18px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(139,92,246,.3)}
+.ben .b-ico{font-size:26px;flex-shrink:0;margin-top:2px}
+.ben .b-nm{font-family:var(--sg);font-weight:700;font-size:15px;margin-bottom:5px}
+.ben .b-ds{font-size:12px;color:#94a3b8;line-height:1.5}
+
+/* Slide 5 CTA */
+.cta-box{padding:5vh 4vw;border-radius:1.5rem;text-align:center}
+.cta-box h2{font-size:clamp(26px,4vw,56px);margin-bottom:2vh}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:3.5vh}
+.btn{padding:16px 34px;border-radius:12px;font-family:var(--sg);font-weight:700;font-size:clamp(14px,1.4vw,17px);cursor:pointer;border:none;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-primary{background:linear-gradient(100deg,var(--violet),var(--blue));color:#fff;box-shadow:0 8px 30px rgba(124,58,237,.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(124,58,237,.55)}
+.btn-ghost{background:transparent;border:1px solid rgba(139,92,246,.5);color:var(--violet-d)}
+.btn-ghost:hover{background:rgba(124,58,237,.1)}
+.pricing-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:3vh}
+.pricing{min-width:150px;padding:16px;border-radius:12px;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(139,92,246,.3)}
+.pricing .pl{font-size:10px;letter-spacing:.3em;color:#94a3b8;text-transform:uppercase}
+.pricing .pp{font-family:var(--sg);font-weight:900;font-size:20px;margin:6px 0}
+.pricing .pd{font-size:11px;color:#94a3b8}
+
+/* Nav */
+.nav{position:fixed;bottom:3vh;left:0;right:0;z-index:10;display:flex;justify-content:center;align-items:center;gap:20px}
+.nav-btn{width:46px;height:46px;border-radius:50%;border:1px solid rgba(139,92,246,.5);background:rgba(10,10,20,.8);color:#fff;font-size:18px;cursor:pointer;backdrop-filter:blur(10px);transition:all .25s;display:flex;align-items:center;justify-content:center}
+.nav-btn:hover{background:rgba(124,58,237,.3);transform:scale(1.08)}
+.dots{display:flex;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .3s;border:none;padding:0}
+.dot.active{background:var(--violet-l);transform:scale(1.3);box-shadow:0 0 12px rgba(139,92,246,.7)}
+.counter{font-size:12px;color:#94a3b8;letter-spacing:.15em}
+.logo-top{position:fixed;top:2.6vh;left:3vw;z-index:10;display:flex;align-items:center;gap:10px;font-family:var(--sg);font-weight:700;font-size:15px}
+.logo-top .panda{font-size:22px}
+.hint{position:fixed;bottom:3vh;right:3vw;z-index:10;font-size:10px;color:rgba(148,163,184,.6);letter-spacing:.1em;text-transform:uppercase}
+
+/* staggered reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.slide.active .reveal{opacity:1;transform:translateY(0)}
+.slide.active .reveal.d1{transition-delay:.15s}.slide.active .reveal.d2{transition-delay:.3s}
+.slide.active .reveal.d3{transition-delay:.45s}.slide.active .reveal.d4{transition-delay:.6s}
+.slide.active .reveal.d5{transition-delay:.75s}.slide.active .reveal.d6{transition-delay:.9s}
+.slide.active .reveal.d7{transition-delay:1.05s}.slide.active .reveal.d8{transition-delay:1.2s}
+
+/* mini mockups */
+.mock-pos{position:absolute;right:-4vw;top:50%;transform:translateY(-50%);width:34vw;min-width:320px;background:rgba(10,10,22,.9);border:1px solid rgba(139,92,246,.4);border-radius:16px;padding:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:float-up 7s ease-in-out infinite}
+.mock-pos .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mock-pos .mh .t{font-size:12px;color:#94a3b8;letter-spacing:.2em;text-transform:uppercase}
+.mock-pos .mh .d{font-size:11px;color:var(--green-l)}
+.mock-item{display:flex;justify-content:space-between;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,.05);margin-bottom:6px;font-size:12px}
+.mock-item .p{color:var(--violet-d)}
+.mock-total{display:flex;justify-content:space-between;padding:10px;border-top:1px dashed rgba(139,92,246,.4);margin-top:8px;font-weight:700;font-size:14px}
+.mock-kds{position:absolute;left:-3vw;top:50%;transform:translateY(-62%);width:26vw;min-width:280px;background:rgba(10,10,22,.9);border:1px solid rgba(37,211,102,.4);border-radius:16px;padding:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:float-dn 8s ease-in-out infinite;z-index:2}
+.mock-kds .kh{font-size:12px;color:var(--green-l);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.mock-card{background:rgba(255,255,255,.06);border-radius:10px;padding:10px;margin-bottom:8px;border-left:3px solid var(--amber)}
+.mock-card .cn{font-size:12px;font-weight:700}
+.mock-card .ci{font-size:11px;color:#94a3b8;margin-top:3px}
+.mock-card .cs{font-size:10px;color:var(--amber);margin-top:4px;letter-spacing:.1em}
+.mock-qr{position:absolute;right:2vw;bottom:8vh;width:110px;height:110px;background:repeating-conic-gradient(#fff 0% 25%,#111 0% 50%) 0 0/12px 12px;border-radius:12px;padding:8px;display:flex;align-items:center;justify-content:center;animation:float-up 9s ease-in-out infinite;z-index:2}
+.mock-qr .inner{width:88px;height:88px;background:repeating-conic-gradient(#111 0% 25%,#fff 0% 50%) 0 0/10px 10px;border-radius:6px}
+.mock-wa{position:absolute;left:2vw;bottom:8vh;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.5);font-size:13px;color:var(--green-l);animation:float-dn 8s ease-in-out infinite;z-index:2}
+
+@media(max-width:900px){
+  .slide{padding:4vh 5vw;justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .slide .kicker{font-size:10px;margin-bottom:1.5vh}
+  .slide h1{font-size:clamp(26px,8.5vw,40px);margin-bottom:2vh}
+  .slide h2{font-size:clamp(20px,6.5vw,32px);margin-bottom:2vh}
+  .slide p.lead{font-size:13px;line-height:1.5}
+  .mock-pos,.mock-kds,.mock-qr,.mock-wa{display:none}
+  .eco{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:2vh}
+  .eco-card{padding:12px 10px}
+  .eco-card .ico{font-size:20px;margin-bottom:5px}
+  .eco-card .nm{font-size:12px}
+  .eco-card .ds{font-size:10px}
+  .ben-grid{grid-template-columns:1fr;gap:8px;margin-top:2vh}
+  .ben{padding:12px;gap:10px}
+  .ben .b-ico{font-size:20px}
+  .ben .b-nm{font-size:13px}
+  .ben .b-ds{font-size:11px}
+  .flow-wrap{flex-direction:column;gap:6px;margin-top:2vh;align-items:stretch}
+  .flow-arrow{transform:rotate(90deg);text-align:center;padding:2px 0}
+  .flow-step{min-width:0;padding:12px 10px}
+  .flow-step .ico{font-size:20px}
+  .flow-step .nm{font-size:13px}
+  .flow-step .ds{font-size:10px}
+  .channel-row{margin-top:1.5vh}
+  .chip{font-size:10px;padding:5px 10px}
+  .stat-row{gap:8px;margin-top:2.5vh}
+  .stat{min-width:calc(50% - 8px);padding:1.2vh 2vw}
+  .stat .num{font-size:22px}
+  .hero-badge{font-size:11px;padding:8px 12px;margin-bottom:2vh}
+  .cta-box{padding:3.5vh 4vw}
+  .cta-box h2{font-size:clamp(22px,7vw,32px)}
+  .cta-btns{gap:10px;margin-top:2.5vh;flex-direction:column}
+  .btn{padding:14px 20px;font-size:14px;width:100%;text-align:center}
+  .pricing-row{gap:8px;margin-top:2vh}
+  .pricing{min-width:calc(33% - 8px);padding:12px 8px}
+  .pricing .pp{font-size:15px}
+  .nav{bottom:2vh;gap:12px}
+  .nav-btn{width:42px;height:42px;font-size:16px}
+  .hint{display:none}
+  .logo-top{top:2vh;left:4vw;font-size:13px}
+}
+@media(max-width:480px){
+  .eco{grid-template-columns:1fr 1fr}
+  .eco-core{grid-column:span 2}
+  .ben-grid{grid-template-columns:1fr}
+  .slide{padding:7vh 4.5vw 10vh}
+}
+</style>
+</head>
+<body>
+<div class="dots-grid"></div>
+<div class="aurora"><div class="aurora-blob blob1"></div><div class="aurora-blob blob2"></div><div class="aurora-blob blob3"></div></div>
+
+<div class="logo-top"><span class="panda">🐼</span> PANDAPOSS<span style="color:#7c3aed;font-weight:400">.COM</span></div>
+
+<div class="deck">
+
+  <!-- SLIDE 1 -->
+  <section class="slide active" data-slide="0">
+    <div class="kicker reveal d1">SaaS · Punto de Venta para Restaurantes</div>
+    <h1 class="reveal d2">Tu restaurante.<br/><span class="grad">Un solo sistema.</span></h1>
+    <p class="lead reveal d3">PANDAPOS<span style="color:var(--violet-l)">S</span>.COM es la plataforma todo-en-uno que centraliza ventas, cocina, delivery, carta digital y clientes en una sola operación. Vende directo con tu propia carta, sin depender de intermediarios.</p>
+    <div class="hero-badge reveal d4">🚀 0% comisión por pedido — vs hasta 30% de las apps de delivery</div>
+    <div class="stat-row reveal d5">
+      <div class="stat glass"><div class="num grad-w">29+</div><div class="lbl">Módulos operativos</div></div>
+      <div class="stat glass"><div class="num grad-w">N</div><div class="lbl">Sucursales · Multi-local</div></div>
+      <div class="stat glass"><div class="num grad-w">QR</div><div class="lbl">Carta digital por mesa</div></div>
+      <div class="stat glass"><div class="num grad-w">IA</div><div class="lbl">Agente WhatsApp</div></div>
+    </div>
+    <div class="mock-pos">
+      <div class="mh"><span class="t">POS · Caja</span><span class="d">● Abierta</span></div>
+      <div class="mock-item"><span>🍣 Roll Salmón</span><span class="p">$7.500</span></div>
+      <div class="mock-item"><span>🥤 Jugo Maracuyá</span><span class="p">$2.900</span></div>
+      <div class="mock-item"><span>🍱 Gohan Camarón</span><span class="p">$6.500</span></div>
+      <div class="mock-total"><span>Total</span><span style="color:var(--green-l)">$16.900</span></div>
+    </div>
+    <div class="mock-qr"><div class="inner"></div></div>
+    <div class="mock-wa">💬 Pide por WhatsApp</div>
+  </section>
+
+  <!-- SLIDE 2 -->
+  <section class="slide" data-slide="1">
+    <div class="kicker reveal d1">Plataforma completa</div>
+    <h2 class="reveal d2">Todo tu restaurante,<br/><span class="grad">en un solo sistema</span></h2>
+    <p class="lead reveal d3">PANDAPOS integra la operación completa — del mostrador a la cocina, del delivery al análisis — en un solo lugar.</p>
+    <div class="eco">
+      <div class="eco-card eco-core reveal d3"><div class="ico">🛒</div><div class="nm">Punto de Venta (POS)</div><div class="ds">Órdenes, mesas, variantes, notas, precuenta, cobro y boleta</div></div>
+      <div class="eco-card reveal d4"><div class="ico">🖥️</div><div class="nm">KDS · Cocina</div><div class="ds">Pantalla de cocina/barra en tiempo real, cero comandas perdidas</div></div>
+      <div class="eco-card reveal d4"><div class="ico">🍽️</div><div class="nm">Mesas & Salas</div><div class="ds">Mapa visual de mesas, estados y cuenta por grupo</div></div>
+      <div class="eco-card reveal d4"><div class="ico">📱</div><div class="nm">Carta QR</div><div class="ds">Menú digital por mesa con fotos, variantes y precios</div></div>
+      <div class="eco-card reveal d5"><div class="ico">🛵</div><div class="nm">Delivery propio</div><div class="ds">Zonas, repartidores, tracking en vivo con Google Maps</div></div>
+      <div class="eco-card reveal d5"><div class="ico">💬</div><div class="nm">Pedidos WhatsApp</div><div class="ds">El cliente arma el carrito y pide directo, 0% comisión</div></div>
+      <div class="eco-card reveal d5"><div class="ico">🖲️</div><div class="nm">Kiosko</div><div class="ds">Autoservicio en pantalla táctil para pedidos de mostrador</div></div>
+      <div class="eco-card reveal d5"><div class="ico">🧑‍🤝‍🧑</div><div class="nm">Clientes & Fidelización</div><div class="ds">Base propia, puntos, cumpleaños, cupones y segmentos</div></div>
+      <div class="eco-card reveal d6"><div class="ico">💰</div><div class="nm">Cajas & Arqueos</div><div class="ds">Apertura, movimientos, cierre de caja y resumen Z</div></div>
+      <div class="eco-card reveal d6"><div class="ico">📊</div><div class="nm">Analítica & Reportes</div><div class="ds">Ventas por hora/turno, top productos, ticket promedio</div></div>
+      <div class="eco-card reveal d6"><div class="ico">🏢</div><div class="nm">Multi-sucursal</div><div class="ds">Un sistema para N locales, con planes por sucursal</div></div>
+      <div class="eco-card reveal d6"><div class="ico">👥</div><div class="nm">Usuarios & Roles</div><div class="ds">Dueño, cajero, mesero, cocina, barra, delivery, back office</div></div>
+      <div class="eco-card reveal d7"><div class="ico">📦</div><div class="nm">Inventario & Stock</div><div class="ds">Control de stock y stock mínimo por producto</div></div>
+      <div class="eco-card reveal d7"><div class="ico">🧾</div><div class="nm">Productos & Variantes</div><div class="ds">Catálogo con variantes, IVA, fotos e importación de carta</div></div>
+      <div class="eco-card reveal d7"><div class="ico">🤖</div><div class="nm">Agente IA WhatsApp</div><div class="ds">Bot que recibe y arma pedidos automáticamente</div></div>
+      <div class="eco-card reveal d7"><div class="ico">🗓️</div><div class="nm">RRHH & Eventos</div><div class="ds">Asistencia de personal, eventos y validación de tickets</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 -->
+  <section class="slide" data-slide="2">
+    <div class="kicker reveal d1">Flujo operativo</div>
+    <h2 class="reveal d2">Así funciona <span class="grad">PANDAPOS</span></h2>
+    <p class="lead reveal d3">Un pedido entra por cualquier canal y el sistema lo lleva de punta a punta, en tiempo real.</p>
+    <div class="flow-wrap reveal d4">
+      <div class="flow-step glass glow-b"><div class="st">Paso 1</div><div class="ico">📥</div><div class="nm">El pedido entra</div><div class="ds">POS · Mesa · QR · WhatsApp · Delivery · Kiosko</div></div>
+      <div class="flow-arrow">➜</div>
+      <div class="flow-step glass glow-v"><div class="st">Paso 2</div><div class="ico">🖥️</div><div class="nm">Llega a cocina (KDS)</div><div class="ds">La estación correcta lo ve al instante, con variantes y notas</div></div>
+      <div class="flow-arrow">➜</div>
+      <div class="flow-step glass glow-a"><div class="st">Paso 3</div><div class="ico">✅</div><div class="nm">Listo & entregado</div><div class="ds">Cocina lo marca listo; delivery asigna repartidor con tracking</div></div>
+      <div class="flow-arrow">➜</div>
+      <div class="flow-step glass glow-g"><div class="st">Paso 4</div><div class="ico">💰</div><div class="nm">Cobro & cierre</div><div class="ds">Checkout con pagos parciales, vuelto, boleta y arqueo</div></div>
+      <div class="flow-arrow">➜</div>
+      <div class="flow-step glass glow-p"><div class="st">Paso 5</div><div class="ico">📈</div><div class="nm">Todo queda registrado</div><div class="ds">Ventas, stock, puntos del cliente y reportes actualizados</div></div>
+    </div>
+    <div class="channel-row reveal d5">
+      <span class="chip">🛒 POS / Caja</span>
+      <span class="chip">🍽️ Mesa</span>
+      <span class="chip">📱 Carta QR</span>
+      <span class="chip">💬 WhatsApp</span>
+      <span class="chip">🛵 Delivery</span>
+      <span class="chip">🖲️ Kiosko</span>
+      <span class="chip">📋 Ingreso manual</span>
+      <span class="chip">🤖 Agente IA</span>
+    </div>
+    <div class="mock-kds">
+      <div class="kh">🍳 KDS · Cocina</div>
+      <div class="mock-card"><div class="cn">Mesa 4 · #1042</div><div class="ci">2× Roll Salmón · 1× Gohan Pollo</div><div class="cs">◉ EN PREPARACIÓN</div></div>
+      <div class="mock-card"><div class="cn">Delivery · #1043</div><div class="ci">1× Pad Thai Camarón · sin ají</div><div class="cs">◉ PENDIENTE</div></div>
+      <div class="mock-card"><div class="cn">Mesa 7 · #1044</div><div class="ci">1× Ramen Cerdo · Tamago Sí</div><div class="cs" style="color:var(--green-l)">◉ LISTO</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 -->
+  <section class="slide" data-slide="3">
+    <div class="kicker reveal d1">Beneficios concretos</div>
+    <h2 class="reveal d2">¿Por qué <span class="grad">PANDAPOS</span>?</h2>
+    <p class="lead reveal d3">Cada funcionalidad se traduce en menos trabajo manual, más control y mejor atención.</p>
+    <div class="ben-grid">
+      <div class="ben reveal d4"><div class="b-ico">💸</div><div><div class="b-nm">0% de comisión por pedido</div><div class="b-ds">Vende por tu carta QR y WhatsApp sin pagar hasta 30% a intermediarios. El margen se queda en tu local.</div></div></div>
+      <div class="ben reveal d4"><div class="b-ico">⚡</div><div><div class="b-nm">Atención más rápida</div><div class="b-ds">Pedidos llegan directo a la cocina en tiempo real. Se acabaron las comandas perdidas y los gritos.</div></div></div>
+      <div class="ben reveal d4"><div class="b-ico">🎯</div><div><div class="b-nm">Control total de caja</div><div class="b-ds">Cajas, movimientos, arqueos y resumen Z. Sabes exactamente cuánto entró, cuándo y por dónde.</div></div></div>
+      <div class="ben reveal d5"><div class="b-ico">📊</div><div><div class="b-nm">Decisiones con datos</div><div class="b-ds">Ventas por hora y turno, top productos, ticket promedio y baja rotación: sabes qué vender y qué potenciar.</div></div></div>
+      <div class="ben reveal d5"><div class="b-ico">🏠</div><div><div class="b-nm">Clientes que vuelven</div><div class="b-ds">Puntos, cumpleaños y cupones sobre tu propia base de clientes. Fideliza sin ceder datos a terceros.</div></div></div>
+      <div class="ben reveal d5"><div class="b-ico">🛵</div><div><div class="b-nm">Delivery con tracking</div><div class="b-ds">Zonas con tarifas, repartidores asignados y seguimiento en vivo. El cliente sabe dónde está su pedido.</div></div></div>
+      <div class="ben reveal d6"><div class="b-ico">📦</div><div><div class="b-nm">Inventario bajo control</div><div class="b-ds">Stock y stock mínimo por producto. Menos quiebres, menos mermas, menos sorpresas.</div></div></div>
+      <div class="ben reveal d6"><div class="b-ico">🏢</div><div><div class="b-nm">Crece con tus locales</div><div class="b-ds">Multi-sucursal: un sistema para N sucursales con planes, logos y configuraciones independientes.</div></div></div>
+      <div class="ben reveal d6"><div class="b-ico">🔐</div><div><div class="b-nm">Roles por equipo</div><div class="b-ds">Cajero, mesero, cocina, barra, delivery y back office: cada uno ve solo lo que necesita.</div></div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5 -->
+  <section class="slide" data-slide="4">
+    <div class="cta-box glass glow-v reveal d1">
+      <div class="kicker reveal d2">Conviértete en suscriptor</div>
+      <h2 class="reveal d3">Moderniza tu restaurante.<br/><span class="grad">Controla todo. Vende directo.</span></h2>
+      <p class="lead reveal d4" style="margin:0 auto">Una plataforma que crece contigo: de un local a varias sucursales, con planes por sucursal según la etapa de tu negocio. El código completo puede instalarse en tu propio servidor, con tus datos bajo tu control.</p>
+      <div class="pricing-row reveal d5">
+        <div class="pricing"><div class="pl">Básico</div><div class="pp">1 local</div><div class="pd">POS + KDS + QR</div></div>
+        <div class="pricing"><div class="pl">Pro</div><div class="pp">Delivery</div><div class="pd">+ delivery & tracking</div></div>
+        <div class="pricing"><div class="pl">Prime</div><div class="pp">Multi-sucursal</div><div class="pd">+ N locales & IA</div></div>
+      </div>
+      <div class="cta-btns reveal d6">
+        <a class="btn btn-primary" href="#" onclick="return false">🚀 Quiero ser suscriptor</a>
+        <a class="btn btn-ghost" href="#" onclick="return false">💬 Pedir una demo</a>
+      </div>
+      <p class="reveal d7" style="margin-top:3.5vh;font-family:var(--sg);font-weight:900;font-size:clamp(16px,1.8vw,22px);letter-spacing:-.01em"><span class="grad-w">PANDAPOSS.COM</span><br/>Tu restaurante. Un solo sistema. Más control.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button class="nav-btn" id="prev" title="Anterior (←)">‹</button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" id="next" title="Siguiente (→)">›</button>
+  <span class="counter" id="counter">1 / 5</span>
+</div>
+<div class="hint">← → navegar</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsWrap = document.getElementById('dots');
+const counter = document.getElementById('counter');
+let cur = 0;
+const TOTAL = slides.length;
+
+for (let i = 0; i < TOTAL; i++) {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => go(i));
+  dotsWrap.appendChild(d);
+}
+const dots = dotsWrap.querySelectorAll('.dot');
+
+function go(n) {
+  if (n < 0 || n >= TOTAL || n === cur) return;
+  slides[cur].classList.remove('active');
+  slides[n].classList.remove('leaving-left');
+  slides[cur].classList.add('leaving-left');
+  slides[n].classList.add('active');
+  dots[cur].classList.remove('active');
+  dots[n].classList.add('active');
+  cur = n;
+  counter.textContent = (cur + 1) + ' / ' + TOTAL;
+}
+document.getElementById('next').addEventListener('click', () => go(cur + 1));
+document.getElementById('prev').addEventListener('click', () => go(cur - 1));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+// swipe touch
+let tx = 0;
+document.addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 60) dx < 0 ? go(cur + 1) : go(cur - 1);
+}, {passive:true});
+</script>
+</body>
+</html>
